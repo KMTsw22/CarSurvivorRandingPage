@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Car Survivor — Landing Page
+
+Landing page for **Car Survivor**, a top-down 2D survivor roguelike where you drive time-traveling vehicles through hordes of dinosaurs.
+
+## Tech Stack
+
+- **Next.js 16** + TypeScript
+- **Tailwind CSS**
+- Deployed on **Vercel**
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── page.tsx          # Main landing page
+│   ├── layout.tsx        # Root layout + metadata
+│   ├── globals.css       # Global styles + animations
+│   ├── privacy/          # Privacy Policy page
+│   └── icon.png          # Favicon
+├── components/
+│   ├── Navbar.tsx        # Responsive navigation
+│   ├── Hero.tsx          # Hero section (Car vs T-Rex)
+│   ├── GameShowcase.tsx  # In-game lobby preview
+│   ├── About.tsx         # Game description
+│   ├── Features.tsx      # Features + Dinosaur bestiary
+│   ├── Technology.tsx    # Gemini AI + Google Cloud + Unity
+│   ├── Team.tsx          # DashDeploy Studios team
+│   ├── Roadmap.tsx       # MVP → Early Access → Launch
+│   ├── Wishlist.tsx      # CTA section
+│   └── Footer.tsx        # Footer with links
+public/
+└── images/               # Game assets + sprites
+```
 
-## Learn More
+## Team — DashDeploy Studios
 
-To learn more about Next.js, take a look at the following resources:
+| Name | Role |
+|------|------|
+| **Max** (Mintae Kim) | Builder — Developer, DevOps, AI Pipeline |
+| **Jay** (YeongJae Kim) | Designer & Planner — Game Design, UX/UI |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Related Repositories
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [CarSurvival](https://github.com/KMTsw22/CarSurvival.git) — Game (Unity)
+- [CarSurvival_Plan](https://github.com/KMTsw22/CarSurvival_Plan.git) — Design & Planning
+- [CarSurvivorRandingPage](https://github.com/KMTsw22/CarSurvivorRandingPage.git) — This repo
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All rights reserved. © 2026 DashDeploy Studios.
