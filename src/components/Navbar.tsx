@@ -15,20 +15,26 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-orange-500/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a140e]/80 backdrop-blur-md border-b border-orange-500/10">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo — studio brand with current game indicator */}
         <a href="#" className="flex items-center gap-3">
           <Image
-            src="/images/car-super-side.png"
-            alt="Car Survivor"
-            width={40}
-            height={40}
-            className="drop-shadow-[0_0_8px_rgba(234,88,12,0.5)]"
+            src="/images/CardArt_Fireball.png"
+            alt="DashDeploy Studios"
+            width={36}
+            height={36}
+            className="rounded-full drop-shadow-[0_0_8px_rgba(234,88,12,0.5)]"
           />
-          <span className="text-lg font-bold tracking-tight">
-            Car <span className="text-orange-500">Survivor</span>
-          </span>
+          <div className="flex flex-col leading-tight">
+            <span className="text-base font-bold tracking-tight">
+              Dash<span className="text-orange-500">Deploy</span>
+              <span className="text-zinc-400 font-normal"> Studios</span>
+            </span>
+            <span className="text-[10px] uppercase tracking-[0.18em] text-orange-400/80">
+              Now playing: Last Ember
+            </span>
+          </div>
         </a>
 
         {/* Desktop links */}
@@ -68,7 +74,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-orange-500/10 bg-[#0a0a0a]/95 backdrop-blur-md px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden border-t border-orange-500/10 bg-[#1a140e]/95 backdrop-blur-md px-6 py-4 flex flex-col gap-4">
           {navLinks.map((l) => (
             <a
               key={l.href}

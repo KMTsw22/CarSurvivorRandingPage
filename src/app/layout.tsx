@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Car Survivor | Drive Through the Dinosaur Age",
+  title: "Last Ember | Summon Dinosaurs. Build Your Deck.",
   description:
-    "Race through prehistoric wastelands swarming with dinosaurs. A top-down 2D survivor roguelike with time-traveling vehicles, auto-combat, and AI-powered development. Coming to Steam.",
-  keywords: ["car survivor", "roguelike", "dinosaur game", "survivor game", "indie game", "steam"],
+    "A deck-building roguelike where Arkane — bearer of the world's last summoning ember — calls dinosaurs to battle. Slay-the-Spire-style maps, fusion sigils, and bio-mecha evolutions. Coming to Steam.",
+  keywords: ["last ember", "deckbuilder", "roguelike", "dinosaur card game", "slay the spire", "indie game", "steam"],
   openGraph: {
-    title: "Car Survivor | Drive Through the Dinosaur Age",
-    description: "Race through prehistoric wastelands swarming with dinosaurs.",
+    title: "Last Ember | Summon Dinosaurs. Build Your Deck.",
+    description: "Arkane carries the world's last spark of summoning fire — and the dinosaurs answer.",
     type: "website",
   },
 };
@@ -34,7 +34,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#0a0a0a] text-white">
+      <body className="min-h-full flex flex-col bg-[#1a140e] text-white">
         {children}
       </body>
     </html>

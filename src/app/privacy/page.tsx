@@ -1,15 +1,15 @@
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="min-h-screen bg-[#1a140e] text-white">
       <div className="max-w-3xl mx-auto px-6 py-24">
         <h1 className="text-4xl font-bold mb-2">Privacy Policy</h1>
-        <p className="text-zinc-500 text-sm mb-12">Last updated: April 7, 2026</p>
+        <p className="text-zinc-500 text-sm mb-12">Last updated: April 29, 2026</p>
 
         <div className="space-y-8 text-zinc-400 leading-relaxed">
           <section>
             <h2 className="text-xl font-semibold text-white mb-3">1. Introduction</h2>
             <p>
-              DashDeploy Studios (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) operates the Car Survivor
+              DashDeploy Studios (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) operates the Last Ember
               game and related services. This Privacy Policy explains how we collect,
               use, and protect your information when you visit our website or use our services.
             </p>

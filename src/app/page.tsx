@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import GameShowcase from "@/components/GameShowcase";
 import About from "@/components/About";
 import Features from "@/components/Features";
 import Technology from "@/components/Technology";
@@ -15,7 +14,6 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <GameShowcase />
         <About />
         <Features />
         <Technology />

@@ -1,37 +1,43 @@
-"use client";
+import Image from "next/image";
 
-import { useState } from "react";
+type Member = {
+  name: string;
+  realName: string;
+  role: string;
+  tags: string[];
+  desc: string;
+  photo: string | null;
+  initial: string;
+};
 
-const members = [
+const team: Member[] = [
   {
     name: "Max",
     realName: "Mintae Kim",
     role: "Builder",
-    tags: ["Developer", "DevOps", "AI Pipeline", "Infrastructure"],
-    desc: "Full-stack builder handling game development, cloud infrastructure, AI asset pipeline, and deployment. From Unity C# to Next.js to Google Cloud — building the entire technical stack end-to-end.",
+    tags: ["Unity / C#", "AI Asset Pipeline", "Card & Enemy Balance", "Web", "DevOps"],
+    desc: "Shipping Last Ember end-to-end — Unity 6 client, turn-based combat core, the Gemini / GPT Image / KLING asset pipeline, this landing site, and every balance pass in between.",
+    photo: "/images/max-portrait.jpg",
     initial: "M",
-    color: "from-red-500 to-orange-500",
   },
   {
     name: "Jay",
     realName: "YeongJae Kim",
     role: "Designer & Planner",
-    tags: ["Game Design", "Level Design", "UX/UI", "Art Direction"],
-    desc: "Designing the core gameplay loop, balancing enemy waves, crafting the 3-era world structure, and directing the visual style. Turning creative vision into detailed game design documents.",
+    tags: ["Game Design", "Card Balance", "Encounter Design", "UX / UI", "Art Direction"],
+    desc: "Shapes Last Ember's run economy and combat feel — card pacing, dinosaur kits, fusion sigils, and the visual direction that holds every encounter together.",
+    photo: null,
     initial: "J",
-    color: "from-orange-500 to-yellow-500",
   },
 ];
 
 const repos = [
-  { name: "CarSurvival", desc: "Game", url: "https://github.com/KMTsw22/CarSurvival.git" },
-  { name: "CarSurvival_Plan", desc: "Design & Planning", url: "https://github.com/KMTsw22/CarSurvival_Plan.git" },
-  { name: "CarSurvivorRandingPage", desc: "Landing Page", url: "https://github.com/KMTsw22/CarSurvivorRandingPage.git" },
+  { name: "DianoCard", desc: "Game (Unity)", url: "mailto:dashdeploystudio@gmail.com" },
+  { name: "DianoCardPlan", desc: "Design & Planning", url: "mailto:dashdeploystudio@gmail.com" },
+  { name: "LandingPage", desc: "This Site", url: "mailto:dashdeploystudio@gmail.com" },
 ];
 
 export default function Team() {
-  const [expanded, setExpanded] = useState<number | null>(null);
-
   return (
     <section id="team" className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
@@ -44,47 +50,56 @@ export default function Team() {
             DashDeploy <span className="text-orange-400">Studios</span>
           </h2>
           <p className="mt-4 text-zinc-400 max-w-2xl mx-auto text-lg">
-            A two-person indie game studio building at the intersection of gaming and AI.
+            A small indie team working at the intersection of gaming and AI.
           </p>
         </div>
 
-        {/* Team cards */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-          {members.map((m, i) => (
+        {/* Builder cards */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {team.map((m, i) => (
             <div
               key={m.name}
-              className="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden transition-all duration-300 hover:border-orange-500/30"
+              className="rounded-3xl border border-orange-500/20 bg-gradient-to-br from-orange-500/[0.06] to-transparent p-7 sm:p-8 shadow-[0_0_40px_rgba(234,88,12,0.08)]"
             >
-              {/* Card header — always visible */}
-              <button
-                onClick={() => setExpanded(expanded === i ? null : i)}
-                className="w-full p-6 flex items-center gap-4 text-left cursor-pointer"
-              >
-                <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${m.color} flex items-center justify-center text-xl font-bold shrink-0`}>
-                  {m.initial}
+              <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start h-full">
+                {/* Portrait or initial badge */}
+                <div className="relative w-32 h-32 sm:w-36 sm:h-36 shrink-0 rounded-2xl overflow-hidden ring-2 ring-orange-500/40 shadow-[0_0_30px_rgba(234,88,12,0.25)]">
+                  {m.photo ? (
+                    <Image
+                      src={m.photo}
+                      alt={m.name}
+                      fill
+                      sizes="144px"
+                      className="object-cover"
+                      priority={i === 0}
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-orange-700/40 via-amber-800/30 to-[#1a140e] text-4xl font-black text-orange-200/90 select-none">
+                      {m.initial}
+                    </div>
+                  )}
                 </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <h3 className="text-lg font-semibold">{m.name}</h3>
-                    <span className="text-zinc-500 text-sm">/ {m.realName}</span>
-                  </div>
-                  <p className="text-orange-400 text-sm">{m.role}</p>
-                </div>
-                <svg
-                  className={`w-5 h-5 text-zinc-500 transition-transform duration-300 shrink-0 ${expanded === i ? "rotate-180" : ""}`}
-                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
 
-              {/* Expandable detail */}
-              <div className={`overflow-hidden transition-all duration-300 ${expanded === i ? "max-h-60 opacity-100" : "max-h-0 opacity-0"}`}>
-                <div className="px-6 pb-6">
-                  <p className="text-zinc-400 text-sm leading-relaxed mb-4">{m.desc}</p>
-                  <div className="flex flex-wrap gap-2">
+                {/* Body */}
+                <div className="flex-1 text-center sm:text-left">
+                  <div className="flex flex-wrap items-baseline justify-center sm:justify-start gap-x-3 gap-y-1">
+                    <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">{m.name}</h3>
+                    <span className="text-zinc-400 text-sm">/ {m.realName}</span>
+                  </div>
+                  <p className="mt-1 text-orange-400 font-semibold uppercase tracking-wider text-xs">
+                    {m.role}
+                  </p>
+
+                  <p className="mt-4 text-zinc-300 leading-relaxed text-sm">
+                    {m.desc}
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-2 justify-center sm:justify-start">
                     {m.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-xs text-zinc-400">
+                      <span
+                        key={tag}
+                        className="px-2.5 py-1 rounded-full border border-orange-500/20 bg-orange-500/[0.06] text-[11px] text-orange-200/90"
+                      >
                         {tag}
                       </span>
                     ))}
@@ -98,7 +113,7 @@ export default function Team() {
         {/* GitHub repos */}
         <div className="mt-12 max-w-3xl mx-auto">
           <h3 className="text-center text-lg font-semibold mb-6">
-            Open Development
+            Project Repositories
           </h3>
           <div className="grid sm:grid-cols-3 gap-4">
             {repos.map((r) => (

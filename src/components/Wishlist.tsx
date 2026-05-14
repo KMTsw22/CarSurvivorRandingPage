@@ -11,7 +11,7 @@ export default function Wishlist() {
               Coming <span className="text-orange-400">Soon</span>
             </h2>
             <p className="mt-4 text-zinc-400 text-lg max-w-md mx-auto">
-              Car Survivor is currently in active development.
+              Last Ember is currently in active development.
               Stay tuned for our Steam Early Access launch!
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

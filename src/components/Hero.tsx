@@ -1,126 +1,120 @@
 import Image from "next/image";
+import ArkaneIdle from "./ArkaneIdle";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
-      {/* Background */}
+    <section className="relative min-h-screen overflow-hidden pt-24 pb-12">
+      {/* Background — Chapter 1 boss arena, more visible */}
       <div className="absolute inset-0">
         <Image
-          src="/images/map_1.png"
-          alt="Dinosaur Map"
+          src="/images/bg-ch1-boss.png"
+          alt="Ruined keep — Chapter 1"
           fill
-          className="object-cover opacity-20 scale-150"
+          className="object-cover opacity-70 scale-105"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#0a0a0a]/40 to-[#0a0a0a]" />
+        {/* Lighter gradient: only darken edges, keep center readable */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a140e]/55 via-[#1a140e]/30 to-[#1a140e]/85" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(26,20,14,0.55)_75%)]" />
       </div>
 
-      {/* Glows */}
-      <div className="absolute top-1/3 left-[15%] w-[300px] h-[300px] bg-red-600/15 rounded-full blur-[100px]" />
-      <div className="absolute top-1/3 right-[15%] w-[400px] h-[400px] bg-orange-600/12 rounded-full blur-[120px]" />
+      {/* Ember glows */}
+      <div className="absolute top-1/3 left-[12%] w-[320px] h-[320px] bg-amber-600/20 rounded-full blur-[110px] pointer-events-none" />
+      <div className="absolute top-1/3 right-[12%] w-[420px] h-[420px] bg-orange-700/18 rounded-full blur-[130px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      {/* T-Rex T2 — Arkane's summoned ally, lifted slightly above ground line so it reads as standing further back, not crowding Arkane */}
+      <div className="hidden md:block absolute bottom-0 left-[30%] lg:left-[28%] w-[26%] lg:w-[22%] h-[34%] pointer-events-none z-10">
+        <Image
+          src="/images/T-Rex_T2.png"
+          alt="T-Rex (T2) — Arkane's apex summon"
+          fill
+          priority
+          sizes="(max-width: 1024px) 29vw, 25vw"
+          className="object-contain object-bottom drop-shadow-[0_0_40px_rgba(168,85,247,0.35)]"
+          style={{ objectPosition: "left bottom" }}
+        />
+      </div>
+
+      {/* Arkane ambient glow — static decorative blob (separate from animated image so it doesn't flicker per frame) */}
+      <div className="hidden md:block absolute bottom-[12%] left-[8%] w-[28%] h-[44%] bg-amber-600/20 rounded-full blur-[90px] pointer-events-none z-[5]" />
+
+      {/* Arkane — left poster layer (122-frame idle animation), in front of T-Rex, both anchored to the same ground line.
+          NOTE: no drop-shadow filter on the animated <img> — the alpha mask changes every frame which would re-render
+          the shadow each tick and project flicker onto whatever sits behind her (the T-Rex). Static glow above handles ambience. */}
+      <div className="hidden md:flex absolute bottom-0 left-[1%] w-[29%] lg:w-[26%] h-[63%] pointer-events-none z-20 items-end justify-start">
+        <ArkaneIdle
+          alt="Arkane"
+          className="w-full h-full object-contain object-left-bottom"
+        />
+      </div>
+
+      {/* Ruin Lord — boss, pulled inward from right edge for tighter framing */}
+      <div className="hidden md:block absolute bottom-0 right-[6%] lg:right-[8%] w-[32%] lg:w-[29%] h-[70%] pointer-events-none z-10">
+        <Image
+          src="/images/E901_RuinLord.png"
+          alt="Ruin Lord — Chapter 1 Boss"
+          fill
+          priority
+          sizes="(max-width: 1024px) 36vw, 32vw"
+          className="object-contain object-bottom drop-shadow-[0_0_50px_rgba(234,88,12,0.45)]"
+          style={{ objectPosition: "right bottom" }}
+        />
+      </div>
+
+      {/* Foreground content — centered narrow column so poster characters frame it */}
+      <div className="relative z-30 max-w-3xl mx-auto px-6 text-center flex flex-col items-center min-h-[calc(100vh-9rem)]">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-300 text-sm mb-8 animate-fade-in-up">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/15 backdrop-blur-sm text-orange-200 text-sm mb-8 animate-fade-in-up">
           <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
           Coming Soon to Steam
         </div>
 
         {/* Title */}
-        <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black tracking-tight leading-none animate-fade-in-up delay-100">
-          <span className="text-white">CAR</span>{" "}
-          <span className="bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 bg-clip-text text-transparent animate-gradient-x">
-            SURVIVOR
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-none animate-fade-in-up delay-100">
+          <span className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">LAST</span>{" "}
+          <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-red-500 bg-clip-text text-transparent animate-gradient-x">
+            EMBER
           </span>
         </h1>
 
         {/* Tagline */}
-        <p className="mt-4 text-xl sm:text-2xl text-zinc-300 font-medium animate-fade-in-up delay-200">
-          Drive Through the Dinosaur Age. Survive The Horde.
+        <p className="mt-5 text-lg sm:text-xl text-zinc-200 font-medium animate-fade-in-up delay-200 drop-shadow-[0_1px_4px_rgba(0,0,0,0.7)]">
+          Summon Dinosaurs. Build Your Deck. Outlast the Dark.
         </p>
 
-        {/* === VS Scene === */}
-        <div className="mt-16 relative flex items-center justify-center animate-fade-in-up delay-300">
-
-          {/* Left: Super Car */}
-          <div className="relative shrink-0 flex items-center justify-center">
-            <div className="absolute inset-0 bg-red-500/15 rounded-full blur-3xl" />
-            <Image
-              src="/images/car-super-side.png"
-              alt="Super Car"
-              width={300}
-              height={300}
-              className="w-[220px] sm:w-[320px] h-auto drop-shadow-[0_0_30px_rgba(239,68,68,0.5)] -scale-x-100"
-            />
-          </div>
-
-          {/* Center: VS */}
-          <div className="mx-2 sm:mx-6 flex flex-col items-center z-20 shrink-0">
-            <div className="relative">
-              <span
-                className="text-5xl sm:text-7xl lg:text-8xl font-black italic"
-                style={{
-                  color: "transparent",
-                  WebkitTextStroke: "2px rgba(234,88,12,0.8)",
-                  textShadow: "0 0 40px rgba(234,88,12,0.4)",
-                  filter: "drop-shadow(0 0 20px rgba(234,88,12,0.3))",
-                }}
-              >
-                VS
-              </span>
-              <div className="absolute inset-0 bg-orange-500/20 rounded-full blur-2xl -z-10" />
-            </div>
-          </div>
-
-          {/* Right: T-Rex */}
-          <div className="relative shrink-0 flex items-center justify-center">
-            <div className="absolute inset-0 bg-orange-500/10 rounded-full blur-3xl" />
-            <Image
-              src="/images/T-Rex.png"
-              alt="T-Rex"
-              width={400}
-              height={400}
-              loading="eager"
-              className="w-[220px] sm:w-[320px] h-auto drop-shadow-[0_0_30px_rgba(234,88,12,0.6)] -scale-x-100"
-            />
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-400">
-          <a
-            href="mailto:dashdeploystudio@gmail.com"
-            className="px-8 py-3.5 rounded-full bg-orange-600 hover:bg-orange-500 transition-colors text-white font-bold animate-pulse-glow"
+        {/* Mobile-only character/boss row (static thumbs — animation runs only on md+) */}
+        <div className="mt-10 md:hidden flex items-center justify-center gap-4 animate-fade-in-up delay-300">
+          <Image
+            src="/images/character-arkane.png"
+            alt="Arkane"
+            width={140}
+            height={180}
+            className="h-auto w-[110px] drop-shadow-[0_0_20px_rgba(234,88,12,0.4)]"
+          />
+          <span
+            className="text-3xl font-black italic"
+            style={{
+              color: "transparent",
+              WebkitTextStroke: "2px rgba(234,88,12,0.85)",
+              textShadow: "0 0 30px rgba(234,88,12,0.4)",
+            }}
           >
-            Get Notified
-          </a>
-          <a
-            href="#features"
-            className="px-8 py-3.5 rounded-full border border-white/20 hover:border-orange-500/40 transition-colors text-zinc-300 hover:text-orange-300 font-medium"
-          >
-            See Features
-          </a>
+            VS
+          </span>
+          <Image
+            src="/images/E901_RuinLord.png"
+            alt="Ruin Lord"
+            width={170}
+            height={220}
+            className="h-auto w-[150px] drop-shadow-[0_0_20px_rgba(234,88,12,0.4)]"
+          />
         </div>
 
-        {/* Stats */}
-        <div className="mt-14 grid grid-cols-4 gap-6 max-w-lg mx-auto animate-fade-in-up delay-500">
-          {[
-            { value: "10", label: "Dinosaur Species" },
-            { value: "3", label: "Time Eras" },
-            { value: "7+", label: "Weapons" },
-            { value: "3", label: "Vehicles" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-orange-400">{stat.value}</div>
-              <div className="text-xs text-zinc-500 mt-1">{stat.label}</div>
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-        <svg className="w-6 h-6 text-orange-500/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-float z-20">
+        <svg className="w-6 h-6 text-orange-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
       </div>

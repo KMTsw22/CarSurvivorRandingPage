@@ -1,8 +1,8 @@
 const techStack = [
   {
-    title: "Gemini AI",
-    subtitle: "Asset Generation",
-    desc: "AI-powered pipeline using Google Gemini API to generate game assets — characters, environments, and effects — enabling rapid iteration at indie scale.",
+    title: "Gemini · Nano Banana",
+    subtitle: "Card Art & Sprites",
+    desc: "Google Gemini 2.5 Flash Image (Nano Banana) is the workhorse — card illustrations, dinosaur sprites, monster portraits, and chapter backgrounds all run through the same prompt-driven pipeline.",
     color: "from-blue-500 to-cyan-400",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -11,21 +11,32 @@ const techStack = [
     ),
   },
   {
-    title: "Google Cloud",
-    subtitle: "Infrastructure",
-    desc: "Scalable cloud backend for analytics, real-time data processing, player services, and AI model inference to power our development workflow.",
-    color: "from-orange-500 to-red-500",
+    title: "GPT Image 2",
+    subtitle: "Concept & Iteration",
+    desc: "OpenAI's image-2 model handles concept exploration, alt takes, and difficult prompts where Nano Banana hits a wall — keeping the art direction loop tight without leaving the keyboard.",
+    color: "from-emerald-500 to-teal-400",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3.75H6.912a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661V18a2.25 2.25 0 002.25 2.25h15a2.25 2.25 0 002.25-2.25v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H15M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859M12 3v8.25m0 0l-3-3m3 3l3-3" />
       </svg>
     ),
   },
   {
-    title: "Unity Engine",
-    subtitle: "Game Development",
-    desc: "Cross-platform 2D game built with Unity and C#, featuring custom physics, procedural enemy spawning, and optimized rendering for the survivor genre.",
-    color: "from-emerald-500 to-teal-400",
+    title: "KLING",
+    subtitle: "Animation Source",
+    desc: "Static character art becomes 122-frame idle loops via KLING video generation. The hero's animated Arkane on this page is sliced from a KLING clip and replayed at 24 fps — same pipeline feeds all in-game character animations.",
+    color: "from-fuchsia-500 to-purple-500",
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Unity 6",
+    subtitle: "Game Engine",
+    desc: "Built on Unity 6 with URP and the new Input System. Data-driven cards via CSV → ScriptableObjects, custom IMGUI lobby, and a turn-based combat core in C#.",
+    color: "from-orange-500 to-red-500",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
@@ -44,41 +55,31 @@ export default function Technology() {
             Technology
           </span>
           <h2 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tight">
-            Built with <span className="text-orange-400">AI & Cloud</span>
+            Built with <span className="text-orange-400">AI Tools</span>
           </h2>
           <p className="mt-4 text-zinc-400 max-w-2xl mx-auto text-lg">
-            Combining AI-driven asset generation with cloud infrastructure for
-            rapid development and scalable player services.
+            A solo builder leaning on the best generative-image and video models
+            to ship a card game with hand-feeling art at indie speed.
           </p>
         </div>
 
         {/* Tech cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {techStack.map((t) => (
             <div
               key={t.title}
-              className="relative group p-8 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300 overflow-hidden"
+              className="relative group p-7 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300 overflow-hidden"
             >
               <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${t.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500 -translate-y-1/2 translate-x-1/2`} />
 
-              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${t.color} flex items-center justify-center mb-6 text-white`}>
+              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${t.color} flex items-center justify-center mb-5 text-white`}>
                 {t.icon}
               </div>
-              <h3 className="text-xl font-semibold">{t.title}</h3>
-              <p className="text-orange-400 text-sm mt-1 mb-3">{t.subtitle}</p>
+              <h3 className="text-lg font-semibold">{t.title}</h3>
+              <p className="text-orange-400 text-xs mt-1 mb-3">{t.subtitle}</p>
               <p className="text-zinc-400 leading-relaxed text-sm">{t.desc}</p>
             </div>
           ))}
-        </div>
-
-        {/* Cloud justification */}
-        <div className="mt-12 p-8 rounded-2xl border border-orange-500/20 bg-orange-500/5 text-center">
-          <p className="text-lg text-zinc-300">
-            <span className="text-orange-300 font-semibold">Why Google Cloud?</span>{" "}
-            Our AI asset pipeline processes thousands of Gemini API requests daily.
-            We need scalable compute for model inference, low-latency APIs, and
-            robust infrastructure as we scale toward Steam Early Access launch.
-          </p>
         </div>
       </div>
     </section>

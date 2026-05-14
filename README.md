@@ -1,6 +1,6 @@
-# Car Survivor — Landing Page
+# Last Ember — Landing Page
 
-Landing page for **Car Survivor**, a top-down 2D survivor roguelike where you drive time-traveling vehicles through hordes of dinosaurs.
+Landing page for **Last Ember**, a turn-based deck-building roguelike where **Arkane** — bearer of the world's last summoning ember — calls dinosaurs to her side in battle. Slay-the-Spire-style maps, fusion sigils, and bio-mecha evolutions.
 
 ## Tech Stack
 
@@ -15,7 +15,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+Open [http://localhost:8000](http://localhost:8000) (project port — `dev` runs on 8000, not 3000).
 
 ## Project Structure
 
@@ -29,31 +29,30 @@ src/
 │   └── icon.png          # Favicon
 ├── components/
 │   ├── Navbar.tsx        # Responsive navigation
-│   ├── Hero.tsx          # Hero section (Car vs T-Rex)
+│   ├── Hero.tsx          # Hero (Arkane vs Ruin Lord poster layout)
 │   ├── GameShowcase.tsx  # In-game lobby preview
 │   ├── About.tsx         # Game description
-│   ├── Features.tsx      # Features + Dinosaur bestiary
+│   ├── Features.tsx      # Features + sample cards + dinosaur bestiary
 │   ├── Technology.tsx    # Gemini AI + Google Cloud + Unity
 │   ├── Team.tsx          # DashDeploy Studios team
 │   ├── Roadmap.tsx       # MVP → Early Access → Launch
 │   ├── Wishlist.tsx      # CTA section
 │   └── Footer.tsx        # Footer with links
 public/
-└── images/               # Game assets + sprites
+└── images/               # Card art, dinosaur sprites, lobby + chapter backgrounds
 ```
 
 ## Team — DashDeploy Studios
 
 | Name | Role |
 |------|------|
-| **Max** (Mintae Kim) | Builder — Developer, DevOps, AI Pipeline |
-| **Jay** (YeongJae Kim) | Designer & Planner — Game Design, UX/UI |
+| **Max** (Mintae Kim) | Builder — Game, AI Pipeline, DevOps, Design |
 
-## Related Repositories
+## Related Projects
 
-- [CarSurvival](https://github.com/KMTsw22/CarSurvival.git) — Game (Unity)
-- [CarSurvival_Plan](https://github.com/KMTsw22/CarSurvival_Plan.git) — Design & Planning
-- [CarSurvivorRandingPage](https://github.com/KMTsw22/CarSurvivorRandingPage.git) — This repo
+- **DianoCard** — Game (Unity 6 + URP)
+- **DianoCardPlan** — Design docs, card/enemy tables, asset pipeline
+- **LandingPage** — This repo
 
 ## License
 

@@ -1,14 +1,15 @@
 const milestones = [
   {
     phase: "Phase 1",
-    title: "MVP Development",
+    title: "MVP — Chapter 1",
     status: "current",
     items: [
-      "Core game loop — survive, level up, fight boss",
-      "Present Era: Manhattan stage with 20+ enemy types",
-      "3 playable vehicles with unique stats",
-      "Card-based level-up system with weapon evolutions",
-      "AI-powered asset generation pipeline",
+      "Core run loop — map, battle, reward, shop, rest, boss",
+      "Arkane, the carnivore-taming ember bearer, as Chapter 1's playable summoner",
+      "47-card Chapter 1 pool — summons, fusion sigils, spells, and buffs",
+      "6 carnivore species — Raptor, Carnotaurus, Compy, Allosaurus, Majungasaurus, T-Rex",
+      "T1 / T2 bio-mecha evolution art for every dinosaur in the roster",
+      "AI-generated card, sprite, and chapter-background pipeline shipping in-engine",
     ],
   },
   {
@@ -16,11 +17,11 @@ const milestones = [
     title: "Steam Early Access",
     status: "upcoming",
     items: [
-      "Steam store page & community hub",
-      "Past & Future era stages",
-      "Expanded weapon & skill trees",
-      "Player progression & garage system",
-      "Cloud-based analytics & telemetry",
+      "Steam store page, community hub, and Auto-Cloud save sync",
+      "Next chapter with a new biome, boss, and summoner archetype",
+      "Expanded relic and potion pools tuned from telemetry",
+      "Polished UX pass — tutorial, deck inspector, run history",
+      "Localized text (EN / KR) and full audio pass — BGM + SFX",
     ],
   },
   {
@@ -28,11 +29,11 @@ const milestones = [
     title: "Full Launch & Beyond",
     status: "future",
     items: [
-      "Full 3-era campaign with boss encounters",
-      "Online leaderboards & challenges",
-      "Community content & modding support",
-      "Mobile platform expansion",
-      "Live service updates & seasonal events",
+      "Full chapter arc with branching final acts",
+      "Daily challenge runs and online leaderboards",
+      "Additional playable summoners with their own dino rosters",
+      "Community content and deck-sharing tools",
+      "Live balance patches and seasonal events",
     ],
   },
 ];
@@ -57,7 +58,7 @@ function StatusBadge({ status }: { status: string }) {
 
 export default function Roadmap() {
   return (
-    <section id="roadmap" className="py-24 px-6 bg-gradient-to-b from-[#0a0a0a] via-orange-950/10 to-[#0a0a0a]">
+    <section id="roadmap" className="py-24 px-6 bg-gradient-to-b from-[#1a140e] via-orange-950/10 to-[#1a140e]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

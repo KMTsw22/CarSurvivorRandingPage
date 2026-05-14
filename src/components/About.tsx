@@ -11,28 +11,31 @@ export default function About() {
               About the Game
             </span>
             <h2 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tight">
-              Dinosaurs vs. <span className="text-orange-400">Machines</span>
+              The Last <span className="text-orange-400">Ember Bearer</span>
             </h2>
-            <p className="mt-6 text-zinc-400 leading-relaxed text-lg">
-              In Car Survivor, you drive a weaponized vehicle through a world
-              overrun by dinosaurs. From swarming{" "}
-              <span className="text-white font-medium">Raptors</span> to the
-              terrifying{" "}
-              <span className="text-white font-medium">T-Rex boss</span>,
-              every run throws a different horde at you.
+            <p className="mt-6 text-zinc-300 leading-relaxed text-lg">
+              In <span className="text-white font-medium">Last Ember</span>, you play
+              <span className="text-white font-medium"> Arkane</span> — a girl whose
+              hand still carries the world&apos;s last spark of summoning fire. With
+              it, she calls carnivores to her side — from the quick-footed{" "}
+              <span className="text-white font-medium">Compsognathus</span> to the
+              apex{" "}
+              <span className="text-white font-medium">T-Rex</span> — and turns them
+              against the things that wait in the dark.
             </p>
             <p className="mt-4 text-zinc-400 leading-relaxed">
-              Survive 10 minutes of escalating chaos. Level up with powerful weapon
-              combinations. Collect trophies to unlock the boss tunnel. Travel through
-              Past, Present, and Future eras — each with unique dinosaur species and environments.
+              A turn-based deck-builder in the lineage of Slay the Spire. Pick a path
+              across each chapter&apos;s map, balance summons and spells, fuse beasts
+              with arcane sigils, and evolve them into bio-mecha forms before the
+              ember fades.
             </p>
 
             {/* Quick highlights */}
             <div className="mt-8 grid grid-cols-2 gap-4">
               {[
-                { label: "Run Duration", value: "10-15 min" },
-                { label: "Perspective", value: "Top-down 2D" },
-                { label: "Genre", value: "Survivor Roguelike" },
+                { label: "Genre", value: "Deck-Builder Roguelike" },
+                { label: "Perspective", value: "Turn-Based 2D" },
+                { label: "Run Length", value: "60–90 min" },
                 { label: "Platform", value: "PC (Steam)" },
               ].map((item) => (
                 <div key={item.label} className="p-3 rounded-xl border border-white/10 bg-white/[0.02]">
@@ -43,30 +46,29 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right — Dinosaur showcase */}
+          {/* Right — Chapter 1 Boss showcase */}
           <div className="relative">
-            <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-br from-emerald-950/30 to-orange-950/30">
+            <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-br from-amber-950/30 to-orange-950/30">
               <Image
-                src="/images/map_1.png"
-                alt="Dinosaur Map"
+                src="/images/bg-ch1-boss.png"
+                alt="Chapter 1 Boss Arena"
                 fill
-                className="object-cover opacity-40"
+                className="object-cover opacity-70"
               />
-              {/* T-Rex center */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[70%] h-[70%] relative">
+                <div className="w-[78%] h-[78%] relative">
                   <Image
-                    src="/images/T-Rex.png"
-                    alt="T-Rex Boss"
+                    src="/images/E901_RuinLord.png"
+                    alt="Ruin Lord — Chapter 1 Boss"
                     fill
-                    className="object-contain drop-shadow-[0_0_24px_rgba(234,88,12,0.5)]"
+                    className="object-contain object-bottom drop-shadow-[0_0_24px_rgba(234,88,12,0.5)]"
                   />
                 </div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1a140e]/85 to-transparent" />
               <div className="absolute bottom-4 left-0 right-0 text-center">
-                <span className="text-orange-400 font-bold text-lg">T-Rex — Chapter Boss</span>
-                <p className="text-zinc-500 text-sm">20,000 HP</p>
+                <span className="text-orange-400 font-bold text-lg">Ruin Lord — Chapter 1 Boss</span>
+                <p className="text-zinc-500 text-sm">P3: ember runes ignite</p>
               </div>
             </div>
           </div>
